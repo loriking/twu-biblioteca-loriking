@@ -6,4 +6,7 @@ public class BibliotecaMessage {
         return "Welcome to Biblioteca. Your one-stop shop for great book titles in Bangalore.";
     }
 
+    public String menuOption() {
+        return "List of books";
+    }
 }
