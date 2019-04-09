@@ -15,6 +15,7 @@ public class Library {
     }
 
     public void addBook(Book book) {
+
         availableBooks.add(book);
     }
 }
