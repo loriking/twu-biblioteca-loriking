@@ -1,30 +1,45 @@
 package com.twu.biblioteca;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class BibliotecaApp {
 
     public static void main(String[] args) {
         BibliotecaMessage messages = new BibliotecaMessage();
-        Library library = new Library();
+        Book book1 = new Book("title", "author", "2019", "1");
+        ArrayList listOfBooks =  new ArrayList();
+        listOfBooks.add(book1);
+        Library library = new Library(listOfBooks);
+        GetInput userInput = new GetInput();
+        OptionsMenu options = new OptionsMenu();
 
-        Book book1 = new Book("ABC", "Lori", "2019", "1");
-        library.addBook(book1);
+        options.addOption("List of books");
 
-        System.out.println(messages.welcomeUser());
-        System.out.println("Select one:");
-        System.out.println(messages.menuOption());
-
-        Scanner userOptions = new Scanner(System.in);
-        String userChoice = userOptions.nextLine();
+        System.out.println(messages.welcomeUser()); // Is this a necessary class? Isn't a class overkill?
 
         String listBooks = messages.menuOption();
-        if(userChoice.equals(listBooks)){
-            System.out.println(library.showAvailableBooks());
-        } else {
-            System.out.println("Please select a valid option.");
-        }
+
+        boolean userDidNotQuit = true;
+        String userChoice;
+
+        do {
+            options.displayMenu();
+            userChoice = userInput.getChoice();
+            userDidNotQuit = !userChoice.equals("Quit");
+            switch(userChoice){
+                case "List":
+                    System.out.println(library.showAvailableBooks());
+                    break;
+                case "Quit":
+                    System.out.println("Good-bye");
+                    break;
+                default:
+                    System.out.println("Please select a valid option.");
+            }
+        } while(userDidNotQuit);
 
 
     }
+
 }
+
