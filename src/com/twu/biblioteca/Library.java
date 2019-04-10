@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
-    private List <Book> availableBooks = new ArrayList<Book>();
+    private List<Book> availableBooks = new ArrayList<Book>();
+
+    public Library(){}
+
+    public Library(List<Book> books){
+        this.availableBooks = books;
+    }
 
     public String showAvailableBooks() {
         String displayBooks = "";
@@ -15,7 +21,6 @@ public class Library {
     }
 
     public void addBook(Book book) {
-
         availableBooks.add(book);
     }
 }
