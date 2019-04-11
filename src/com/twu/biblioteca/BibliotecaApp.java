@@ -24,9 +24,7 @@ public class BibliotecaApp {
         options.addOption("\t List of books");
         options.addOption("\t Quit");
 
-        System.out.println(messages.welcomeUser()); // Is this a necessary class? Isn't a class overkill?
-
-        String listBooks = messages.menuOption();
+        System.out.println(messages.welcomeUser()); 
 
         boolean userDidNotQuit = true;
         String userChoice;
