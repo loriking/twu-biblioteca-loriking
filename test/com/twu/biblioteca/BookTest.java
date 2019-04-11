@@ -17,7 +17,8 @@ public class BookTest {
     @Test
     public void checkIfBookIsAvailable() {
         boolean expectedBookStatus = false;
-        aBook.checkOutBook();
+        aBook.bookCheckedOut();
         assertEquals(expectedBookStatus, aBook.checkStatusOfBook());
     }
+
 }
