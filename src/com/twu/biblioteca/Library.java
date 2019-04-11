@@ -39,25 +39,28 @@ public class Library {
     public String borrowBook(Book book){
         String getBook = "";
         if(book.checkStatusOfBook()){
-            book.checkOutBook();
+            book.bookCheckedOut();
             getBook = BookLibraryConstants.AVAILABLE;
         } else {
             getBook = BookLibraryConstants.BORROWED;
-
+            System.out.println(getBook);
         }
-
         return getBook;
     }
 
 
     public String returnBook(Book book) {
+        String response = "";
         boolean libraryContainsBook = allBooksInLibrary.contains(book);
         if (libraryContainsBook){
-            book.returnBook();
-            return BookLibraryConstants.THANKS;
+            book.bookReturned();
+            response =  BookLibraryConstants.THANKS;
         } else {
-            return BookLibraryConstants.WRONG;
+            response = BookLibraryConstants.WRONG;
         }
+        System.out.println(response);
+
+        return response;
 
 
     }

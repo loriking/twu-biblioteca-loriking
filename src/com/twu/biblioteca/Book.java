@@ -20,14 +20,12 @@ public class Book {
         return this.available;
     }
 
-    public void checkOutBook(){
+    public void bookCheckedOut(){
         this.available = false;
-        System.out.println("Thank you! Enjoy the book.");
     }
 
-    public void returnBook(){
+    public void bookReturned(){
         this.available = true;
-        System.out.println("Thank you for returning the book.");
     }
 
     @Override
